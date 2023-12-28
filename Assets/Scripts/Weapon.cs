@@ -27,6 +27,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        lineRenderer.SetPosition(0, firePoint.position);
         if (isReloading || !canShoot || bullets <= 0) return;
 
         if (Input.GetMouseButtonDown(0))
@@ -44,7 +45,6 @@ public class Weapon : MonoBehaviour
     {
         canShoot = false;
         weaponAnimator.SetTrigger("Fire");
-
 
         Ray ray = new Ray(cameraT.position, cameraT.forward);
         RaycastHit hit;
@@ -67,11 +67,9 @@ public class Weapon : MonoBehaviour
         muzzleFlash.SetActive(true);
         Vector3 hitLoc = (hit.point == Vector3.zero) ? cameraT.forward * maxRange : hit.point;
         lineRenderer.enabled = true;
-        lineRenderer.SetPosition(0, firePoint.position);
+
         lineRenderer.SetPosition(1, hitLoc);
 
-        //lineRenderer.startColor = Color.red;
-        //lineRenderer.endColor = Color.red;
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
 

@@ -7,14 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LineTrace
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: DitherMat
+  m_Shader: {fileID: 4800000, guid: 905c4a56de8db0c46b799380e9a3990f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _EMISSION
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 1
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -26,6 +25,10 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorRamp:
+        m_Texture: {fileID: 2800000, guid: 42b1e2070ed9aa5469d250f6519dfd38, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,6 +43,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Dither:
+        m_Texture: {fileID: 2800000, guid: 86a1b36cf71207e43a52828b752bd622, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,6 +57,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 804445fbbe7bb7b45811df97d72ae11b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -63,9 +74,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
+    - _Contrast: 3
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _FOV: 1.3962634
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -76,9 +89,23 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Threshold: 0.1
+    - _Tiling: 192
     - _UVSec: 0
+    - _XAngle: 353.87033
+    - _YAngle: 356.88934
     - _ZWrite: 1
     m_Colors:
+    - _BL: {r: -0.75301796, g: -0.28680068, b: 0.5922071, a: 0}
+    - _BR: {r: 0.22958821, g: -0.2867971, b: 0.9300735, a: 0}
+    - _CamPos: {r: -11.968278, g: 5.839999, b: 19.080256, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 3.4303458, g: 3.4303458, b: 3.4303458, a: 1}
+    - _Direction: {r: 0.13023552, g: 0, b: 0.9914831, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Forward: {r: -0.98907316, g: -0.10452829, b: -0.10396336, a: 0}
+    - _Right: {r: -0.10453601, g: 0.000000007450581, b: 0.99452126, a: 0}
+    - _TL: {r: -0.75173384, g: 0.2976634, b: 0.5884664, a: 0}
+    - _TR: {r: 0.23087232, g: 0.29766697, b: 0.9263328, a: 0}
+    - _Tiling: {r: 192, g: 0.4, b: 0, a: 0}
+    - _Up: {r: -0.10395559, g: 0.9945219, b: -0.010926958, a: 0}
   m_BuildTextureStacks: []
