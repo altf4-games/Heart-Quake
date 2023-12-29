@@ -15,6 +15,7 @@ public class RobotMG : MonoBehaviour
 
     public ParticleSystem particleSys;
     public GameObject explosionParticle;
+    public GameObject charmParticle;
     public Transform bulletSpawnPoint;
     public LineRenderer lineRenderer;
     public GameObject glass;
@@ -55,6 +56,7 @@ public class RobotMG : MonoBehaviour
 
             glass.SetActive(false);
             laser.SetActive(true);
+            charmParticle.SetActive(true);
             playerTransform = null;
             EnemyManager.instance.activeRobots.Remove(this);
             currentState = RobotState.Charmed;
@@ -102,7 +104,7 @@ public class RobotMG : MonoBehaviour
     {
         GameObject particle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
         Destroy(particle, 4f);
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
