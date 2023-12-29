@@ -51,8 +51,14 @@ public class Weapon : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, maxRange))
         {
-            // TODO: Handle damage to the hit object (hit.transform)
-            // Debug.Log("Hit: " + hit.transform.name);
+            // Apply Damage
+            if(hit.transform.tag == "RobotMG")
+            {
+                if (hit.transform.parent.GetComponent<RobotMG>())
+                {
+                    hit.transform.parent.GetComponent<RobotMG>().health -= damage;
+                }
+            }
         }
 
         bullets--;
