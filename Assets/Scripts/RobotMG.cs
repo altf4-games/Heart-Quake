@@ -14,6 +14,7 @@ public class RobotMG : MonoBehaviour
     public float maxInaccuracyAngle = 5f;
 
     public ParticleSystem particleSys;
+    public GameObject explosionParticle;
     public Transform bulletSpawnPoint;
     public LineRenderer lineRenderer;
     public GameObject glass;
@@ -30,6 +31,7 @@ public class RobotMG : MonoBehaviour
     private RobotState currentState = RobotState.Roaming;
     private float nextShootTime;
     private NavMeshAgent navMeshAgent;
+    private bool isExploded = false;
 
     void Start()
     {
@@ -41,13 +43,14 @@ public class RobotMG : MonoBehaviour
 
     void Update()
     {
+        if (isExploded) return;
         if (health <= 0.0f)
         {
             health = 1.0f;
             if (currentState == RobotState.Charmed)
             {
-                Debug.Log("Minecraft wolf died!");
-                enabled = false;
+                Killed();
+                return;
             }
 
             glass.SetActive(false);
@@ -76,16 +79,6 @@ public class RobotMG : MonoBehaviour
         }
     }
 
-    private void Charmed()
-    {
-        if (EnemyManager.instance.activeRobots.Count == 0) return;
-
-        string target = EnemyManager.instance.activeRobots[0].gameObject.name;
-        playerTag = target;
-        Roam();
-        DetectPlayer();
-    }
-
     private void Roam()
     {
         if (!navMeshAgent.hasPath || navMeshAgent.remainingDistance < 0.1f)
@@ -103,6 +96,32 @@ public class RobotMG : MonoBehaviour
         {
             currentState = RobotState.Attacking;
         }
+    }
+
+    private void Killed()
+    {
+        GameObject particle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
+        Destroy(particle, 4f);
+        for (int i = 0; i < 3; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        playerTag = "";
+        EnemyManager.instance.activeRobots.Remove(this);
+        navMeshAgent.ResetPath();
+        navMeshAgent.speed = 0f;
+        isExploded = true;
+        enabled = false;
+    }
+
+    private void Charmed()
+    {
+        if (EnemyManager.instance.activeRobots.Count == 0) return;
+
+        string target = EnemyManager.instance.activeRobots[0].gameObject.name;
+        playerTag = target;
+        Roam();
+        DetectPlayer();
     }
 
     private void Attack()

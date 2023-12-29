@@ -59,6 +59,13 @@ public class Weapon : MonoBehaviour
                     hit.transform.parent.GetComponent<RobotMG>().health -= damage;
                 }
             }
+            if (hit.transform.tag == "RobotVB")
+            {
+                if (hit.transform.GetComponent<RobotVB>())
+                {
+                    hit.transform.GetComponent<RobotVB>().health -= damage;
+                }
+            }
         }
 
         bullets--;

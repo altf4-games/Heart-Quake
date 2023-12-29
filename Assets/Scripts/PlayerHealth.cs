@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (health <= 0.0f)
         {
-            Debug.Log("Lmao Dead");
+            Debug.Log("TODO: IMPLEMENT GAME RESTART!");
         }
     }
 
