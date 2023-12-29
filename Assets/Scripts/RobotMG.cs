@@ -6,36 +6,58 @@ public class RobotMG : MonoBehaviour
 {
     public float health = 1.0f;
     public float detectionRadius = 5f;
+    public float damageAmount = .5f;
     public float roamingRadius = 10f;
     public float shootingCooldown = 2f;
+    private Transform playerTransform;
     public string playerTag = "Player";
+    public float maxInaccuracyAngle = 5f;
 
-    public ParticleSystem particleSystem;
+    public ParticleSystem particleSys;
+    public Transform bulletSpawnPoint;
+    public LineRenderer lineRenderer;
+    public GameObject glass;
+    public GameObject laser;
+
 
     private enum RobotState
     {
         Roaming,
-        Attacking
+        Attacking,
+        Charmed,
     }
 
     private RobotState currentState = RobotState.Roaming;
-    private Transform playerTransform;
     private float nextShootTime;
     private NavMeshAgent navMeshAgent;
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
+        transform.GetChild(0).name = transform.name;
     }
 
     void Update()
     {
         if (health <= 0.0f)
         {
-            Debug.Log("Transition");
-            enabled = false;
+            health = 1.0f;
+            if (currentState == RobotState.Charmed)
+            {
+                Debug.Log("Minecraft wolf died!");
+                enabled = false;
+            }
+
+            glass.SetActive(false);
+            laser.SetActive(true);
+            playerTransform = null;
+            EnemyManager.instance.activeRobots.Remove(this);
+            currentState = RobotState.Charmed;
             return;
         }
+        lineRenderer.SetPosition(0, bulletSpawnPoint.position);
 
         switch (currentState)
         {
@@ -47,7 +69,21 @@ public class RobotMG : MonoBehaviour
             case RobotState.Attacking:
                 Attack();
                 break;
+
+            case RobotState.Charmed:
+                Charmed();
+                break;
         }
+    }
+
+    private void Charmed()
+    {
+        if (EnemyManager.instance.activeRobots.Count == 0) return;
+
+        string target = EnemyManager.instance.activeRobots[0].gameObject.name;
+        playerTag = target;
+        Roam();
+        DetectPlayer();
     }
 
     private void Roam()
@@ -94,9 +130,8 @@ public class RobotMG : MonoBehaviour
 
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag(playerTag))
+            if (collider.name == playerTag)
             {
-                // Update the playerTransform when the player is detected
                 playerTransform = collider.transform;
                 currentState = RobotState.Attacking;
             }
@@ -106,8 +141,48 @@ public class RobotMG : MonoBehaviour
     private void Shoot()
     {
         // Shooting logic here
-        particleSystem.Play();
-        // Example: Instantiate a bullet or raycast to hit the player
+        particleSys.Play();
+
+        Quaternion bulletInaccuracy = Quaternion.Euler(Random.Range(-maxInaccuracyAngle, maxInaccuracyAngle),
+                                                      Random.Range(-maxInaccuracyAngle, maxInaccuracyAngle),
+                                                      0f);
+        Vector3 bulletDirection = bulletInaccuracy * bulletSpawnPoint.forward;
+        Ray ray = new Ray(bulletSpawnPoint.position, bulletDirection);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            lineRenderer.enabled = true;
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(1, hit.point);
+
+            //Debug.Log(hit.transform.name);
+
+            if (hit.transform.name == playerTag)
+            {
+                if (hit.transform.parent.GetComponent<PlayerHealth>())
+                {
+                    hit.transform.parent.GetComponent<PlayerHealth>().DamagePlayer(damageAmount);
+                }
+                if (hit.transform.parent.GetComponent<RobotMG>())
+                {
+                    hit.transform.parent.GetComponent<RobotMG>().health -= damageAmount;
+                }
+            }
+        }
+        else
+        {
+            lineRenderer.enabled = true;
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(1, bulletSpawnPoint.position + bulletSpawnPoint.forward * 100f); // Change 100f to the desired line length
+        }
+        Invoke("DisableLineRenderer", 0.1f);
+    }
+
+    private void DisableLineRenderer()
+    {
+        particleSys.Stop();
+        lineRenderer.enabled = false;
     }
 
     void OnDrawGizmosSelected()
