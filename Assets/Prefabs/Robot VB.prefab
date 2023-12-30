@@ -142,7 +142,7 @@ Transform:
   m_Children:
   - {fileID: 6960990295212736607}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &794093969414285363
 SphereCollider:
@@ -177,14 +177,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430b06fe91eb4dd48bff02211a3625b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensingRadius: 10
-  explosionRadius: 2
-  roamRadius: 5
+  sensingRadius: 20
+  explosionRadius: 1.25
+  roamRadius: 15
   roamSpeed: 3
   chaseSpeed: 10
   jumpHeight: 1
   explosionDelay: 2
+  damageAmount: 5
   health: 2.5
+  explosionParticle: {fileID: 7842546587982290092, guid: 05008f0f511c5e24e903930c307c7583, type: 3}
+  playerHealth: {fileID: 0}
 --- !u!195 &8845794099516519353
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -144,7 +144,7 @@ Transform:
   - {fileID: 6032479540710636129}
   - {fileID: 5057753169088047251}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 165.593, z: 0}
 --- !u!114 &277573901318175263
 MonoBehaviour:
@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  detectionRadius: 20
+  detectionRadius: 25
   damageAmount: 0.5
-  roamingRadius: 20
+  roamingRadius: 25
   shootingCooldown: 0.4
   playerTag: Player
   maxInaccuracyAngle: 5

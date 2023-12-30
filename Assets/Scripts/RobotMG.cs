@@ -120,7 +120,14 @@ public class RobotMG : MonoBehaviour
     {
         if (EnemyManager.instance.activeRobots.Count == 0) return;
 
-        string target = EnemyManager.instance.activeRobots[0].gameObject.name;
+        int randomInt = Random.Range(0, EnemyManager.instance.activeRobots.Count);
+        string target = EnemyManager.instance.activeRobots[randomInt].gameObject.name;
+
+        if (target == gameObject.name)
+        {
+            Killed();
+        }
+
         playerTag = target;
         Roam();
         DetectPlayer();
