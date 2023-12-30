@@ -66,6 +66,13 @@ public class Weapon : MonoBehaviour
                     hit.transform.GetComponent<RobotVB>().health -= damage;
                 }
             }
+            if(hit.transform.tag == "FinalBoss")
+            {
+                if(hit.transform.GetComponent<FinalBoss>())
+                {
+                    hit.transform.GetComponent <FinalBoss>().health -= damage;
+                }
+            }
         }
 
         bullets--;

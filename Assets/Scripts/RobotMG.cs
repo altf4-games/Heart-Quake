@@ -196,6 +196,10 @@ public class RobotMG : MonoBehaviour
                 {
                     hit.transform.parent.GetComponent<RobotMG>().health -= damageAmount;
                 }
+                if (hit.transform.parent.GetComponent<FinalBoss>())
+                {
+                    hit.transform.parent.GetComponent<FinalBoss>().health -= damageAmount;
+                }
             }
         }
         else
