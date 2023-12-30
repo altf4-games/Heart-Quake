@@ -157,7 +157,7 @@ public class RobotVB : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         // Draw sensing radius
         Gizmos.color = Color.yellow;
