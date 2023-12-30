@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace StarterAssets
 {
@@ -36,6 +37,11 @@ namespace StarterAssets
                 Vector3 dashDirection = _firstPersonController.transform.forward * DashDistance;
                 _firstPersonController.MoveWithVelocity(dashDirection);
                 _lastDashTime = Time.time;
+            }
+
+            if(Input.GetKeyDown(KeyCode.F3))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
