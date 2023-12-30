@@ -14,6 +14,7 @@ public class RobotVB : MonoBehaviour
     public float damageAmount = 5f;
     public float health = 2.5f;
     public GameObject explosionParticle;
+    public AudioClip explodeClip;
     public PlayerHealth playerHealth;
 
     private enum EnemyState
@@ -113,6 +114,11 @@ public class RobotVB : MonoBehaviour
     {
         if (isExploded) return;
         GameObject particle = Instantiate(explosionParticle, transform.position,Quaternion.identity);
+        if(explodeClip != null)
+        {
+            AudioManager.instance.PlayAudio(explodeClip, 1.0f, true, 100, transform.position);
+        }
+
         Destroy(particle, 4f);
         Destroy(gameObject, .5f);
 

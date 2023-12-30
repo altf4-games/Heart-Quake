@@ -166,6 +166,8 @@ MonoBehaviour:
   playerTag: Player
   maxInaccuracyAngle: 5
   particleSys: {fileID: 2228742866225922708}
+  explodeClip: {fileID: 8300000, guid: b10d8f172d01f2141b03d663ee5c65e9, type: 3}
+  shootClip: {fileID: 8300000, guid: 9dccd81d55a28b44d922c86cd041e9b2, type: 3}
   explosionParticle: {fileID: 7842546587982290092, guid: 05008f0f511c5e24e903930c307c7583, type: 3}
   charmParticle: {fileID: 3605168792186118072}
   bulletSpawnPoint: {fileID: 100734484723791296}

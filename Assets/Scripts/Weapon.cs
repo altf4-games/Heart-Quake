@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float fireRate = 0.3f;
     [SerializeField] private float damage = 0.5f;
     [SerializeField] private float maxRange = 300f;
+    [SerializeField] private AudioClip shootClip;
     private int bullets;
     private bool isReloading = false;
     private bool canShoot = true;
@@ -45,6 +46,7 @@ public class Weapon : MonoBehaviour
     {
         canShoot = false;
         weaponAnimator.SetTrigger("Fire");
+        AudioManager.instance.PlayAudio(shootClip, 1.0f);
 
         Ray ray = new Ray(cameraT.position, cameraT.forward);
         RaycastHit hit;

@@ -12,6 +12,8 @@ public class FinalBoss : MonoBehaviour
     public ParticleSystem particleSys;
     public LineRenderer lineRenderer;
     public Transform bulletSpawnPoint;
+    public AudioClip explodeClip;
+    public AudioClip shootClip;
 
     public float maxInaccuracyAngle = 5f;
 
@@ -52,6 +54,10 @@ public class FinalBoss : MonoBehaviour
     {
         GameObject particle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
         Destroy(particle, 4f);
+        if (explodeClip != null)
+        {
+            AudioManager.instance.PlayAudio(explodeClip, 1.0f, true, 100, transform.position);
+        }
         for (int i = 0; i < 4; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
@@ -63,6 +69,10 @@ public class FinalBoss : MonoBehaviour
     {
         // Shooting logic here
         particleSys.Play();
+        if (shootClip != null)
+        {
+            AudioManager.instance.PlayAudio(shootClip, .2f, true, 100, transform.position);
+        }
 
         Quaternion bulletInaccuracy = Quaternion.Euler(Random.Range(-maxInaccuracyAngle, maxInaccuracyAngle),
                                                       Random.Range(-maxInaccuracyAngle, maxInaccuracyAngle),

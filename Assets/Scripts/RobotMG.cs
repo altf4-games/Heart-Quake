@@ -14,6 +14,8 @@ public class RobotMG : MonoBehaviour
     public float maxInaccuracyAngle = 5f;
 
     public ParticleSystem particleSys;
+    public AudioClip explodeClip;
+    public AudioClip shootClip;
     public GameObject explosionParticle;
     public GameObject charmParticle;
     public Transform bulletSpawnPoint;
@@ -104,6 +106,10 @@ public class RobotMG : MonoBehaviour
     {
         GameObject particle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
         Destroy(particle, 4f);
+        if (explodeClip != null)
+        {
+            AudioManager.instance.PlayAudio(explodeClip, 1.0f, true, 100, transform.position);
+        }
         for (int i = 0; i < 4; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
@@ -170,6 +176,10 @@ public class RobotMG : MonoBehaviour
     {
         // Shooting logic here
         particleSys.Play();
+        if (shootClip != null)
+        {
+            AudioManager.instance.PlayAudio(shootClip, .1f, true, 100, transform.position);
+        }
 
         Quaternion bulletInaccuracy = Quaternion.Euler(Random.Range(-maxInaccuracyAngle, maxInaccuracyAngle),
                                                       Random.Range(-maxInaccuracyAngle, maxInaccuracyAngle),

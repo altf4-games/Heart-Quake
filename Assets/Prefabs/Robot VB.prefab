@@ -187,6 +187,7 @@ MonoBehaviour:
   damageAmount: 3
   health: 1.5
   explosionParticle: {fileID: 7842546587982290092, guid: 05008f0f511c5e24e903930c307c7583, type: 3}
+  explodeClip: {fileID: 8300000, guid: b10d8f172d01f2141b03d663ee5c65e9, type: 3}
   playerHealth: {fileID: 0}
 --- !u!195 &8845794099516519353
 NavMeshAgent:
