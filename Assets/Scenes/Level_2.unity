@@ -23106,6 +23106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportClip: {fileID: 8300000, guid: dc9cec5da255f7a47bdb9324f52cc322, type: 3}
   deniedClip: {fileID: 8300000, guid: 431e2487e44ef554aad8eb9055613173, type: 3}
+  canvas: {fileID: 5873429514018287908, guid: 890e6a47e8d357f49963552ef27cdca7, type: 3}
+  eventSystem: {fileID: 2179162473176898458, guid: 8f7c56bc9a910e847b2e0bb941b72d16, type: 3}
 --- !u!65 &1371388017
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23376,6 +23378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d2728ed185faf4bb7e621af976b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 5873429514018287908, guid: 890e6a47e8d357f49963552ef27cdca7, type: 3}
+  eventSystem: {fileID: 2179162473176898458, guid: 8f7c56bc9a910e847b2e0bb941b72d16, type: 3}
 --- !u!1001 &1430829710
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,8 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameObject canvas;
+    public GameObject eventSystem;
     private float health = 10.0f;
     private bool dead = false;
 
@@ -11,7 +14,9 @@ public class PlayerHealth : MonoBehaviour
         if (dead) return;
         if (health <= 0.0f)
         {
-            RestartLevel();
+            Instantiate(canvas);
+            Instantiate(eventSystem);
+            Invoke("RestartLevel", 1.0f);
             dead = true;
         }
     }
@@ -23,7 +28,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void RestartLevel()
     {
-        Debug.Log("Fade");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

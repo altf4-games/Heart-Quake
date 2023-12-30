@@ -4323,6 +4323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d2728ed185faf4bb7e621af976b782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 5873429514018287908, guid: 890e6a47e8d357f49963552ef27cdca7, type: 3}
+  eventSystem: {fileID: 2179162473176898458, guid: 8f7c56bc9a910e847b2e0bb941b72d16, type: 3}
 --- !u!850595691 &1418387794
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -34940,4 +34942,6 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 100734483703232595}
   explodeClip: {fileID: 8300000, guid: b10d8f172d01f2141b03d663ee5c65e9, type: 3}
   shootClip: {fileID: 8300000, guid: 9dccd81d55a28b44d922c86cd041e9b2, type: 3}
+  canvas: {fileID: 5873429514018287908, guid: 890e6a47e8d357f49963552ef27cdca7, type: 3}
+  eventSystem: {fileID: 2179162473176898458, guid: 8f7c56bc9a910e847b2e0bb941b72d16, type: 3}
   maxInaccuracyAngle: 5

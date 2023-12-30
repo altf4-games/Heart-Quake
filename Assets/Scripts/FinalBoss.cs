@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalBoss : MonoBehaviour
 {
@@ -14,19 +15,18 @@ public class FinalBoss : MonoBehaviour
     public Transform bulletSpawnPoint;
     public AudioClip explodeClip;
     public AudioClip shootClip;
+    public GameObject canvas;
+    public GameObject eventSystem;
 
     public float maxInaccuracyAngle = 5f;
+    private bool killed = false;
 
     private float nextShootTime;
     private string playerTag = "Player";
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
+        if (killed) return;
         if (health <= 0.0f)
         {
             Killed();
@@ -52,6 +52,7 @@ public class FinalBoss : MonoBehaviour
 
     private void Killed()
     {
+        killed = true;
         GameObject particle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
         Destroy(particle, 4f);
         if (explodeClip != null)
@@ -62,7 +63,8 @@ public class FinalBoss : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
-        enabled = false;
+        StartCoroutine(CompleteGame());
+        //enabled = false;
     }
 
     private void Shoot()
@@ -110,5 +112,14 @@ public class FinalBoss : MonoBehaviour
     {
         particleSys.Stop();
         lineRenderer.enabled = false;
+    }
+
+    private IEnumerator CompleteGame()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(canvas);
+        Instantiate(eventSystem);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(0);
     }
 }
