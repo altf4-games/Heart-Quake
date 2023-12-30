@@ -22,6 +22,7 @@ public class RobotMG : MonoBehaviour
     public LineRenderer lineRenderer;
     public GameObject glass;
     public GameObject laser;
+    private bool diedOnce = false;
 
 
     private enum RobotState
@@ -50,7 +51,7 @@ public class RobotMG : MonoBehaviour
         if (health <= 0.0f)
         {
             health = 1.0f;
-            if (currentState == RobotState.Charmed)
+            if (diedOnce == true)
             {
                 Killed();
                 return;
@@ -62,7 +63,7 @@ public class RobotMG : MonoBehaviour
             playerTransform = null;
             EnemyManager.instance.activeRobots.Remove(this);
             currentState = RobotState.Charmed;
-            return;
+            diedOnce = true;
         }
         lineRenderer.SetPosition(0, bulletSpawnPoint.position);
 
@@ -128,11 +129,6 @@ public class RobotMG : MonoBehaviour
 
         int randomInt = Random.Range(0, EnemyManager.instance.activeRobots.Count);
         string target = EnemyManager.instance.activeRobots[randomInt].gameObject.name;
-
-        if (target == gameObject.name)
-        {
-            Killed();
-        }
 
         playerTag = target;
         Roam();
