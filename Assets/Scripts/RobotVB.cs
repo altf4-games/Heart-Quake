@@ -115,7 +115,11 @@ public class RobotVB : MonoBehaviour
         GameObject particle = Instantiate(explosionParticle, transform.position,Quaternion.identity);
         Destroy(particle, 4f);
         Destroy(gameObject, .5f);
-        playerHealth.DamagePlayer(damageAmount);
+
+        if (health > 0.0f)
+        {
+            playerHealth.DamagePlayer(damageAmount); // Only Damage Player If Alive
+        }
         isExploded = true;
 
         StartCoroutine(ResetStateAfterDelay());

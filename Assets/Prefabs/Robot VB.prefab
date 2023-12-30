@@ -178,14 +178,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensingRadius: 20
-  explosionRadius: 1.25
+  explosionRadius: 2
   roamRadius: 15
   roamSpeed: 3
-  chaseSpeed: 10
+  chaseSpeed: 6
   jumpHeight: 1
   explosionDelay: 2
-  damageAmount: 5
-  health: 2.5
+  damageAmount: 3
+  health: 1.5
   explosionParticle: {fileID: 7842546587982290092, guid: 05008f0f511c5e24e903930c307c7583, type: 3}
   playerHealth: {fileID: 0}
 --- !u!195 &8845794099516519353

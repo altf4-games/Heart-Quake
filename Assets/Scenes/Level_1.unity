@@ -1897,8 +1897,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: health
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: chaseSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: roamRadius
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: damageAmount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: sensingRadius
@@ -1906,7 +1918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionRadius
-      value: 1.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionParticle
@@ -13277,8 +13289,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: health
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: chaseSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: damageAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionRadius
-      value: 1.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionParticle
@@ -14371,8 +14395,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: health
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: chaseSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: damageAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionRadius
-      value: 1.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionParticle
@@ -21239,8 +21275,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: health
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: chaseSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
+      propertyPath: damageAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionRadius
-      value: 1.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2673579219723904610, guid: 445c61f175ba8b14cb68a8c2d0f281ab, type: 3}
       propertyPath: explosionParticle
